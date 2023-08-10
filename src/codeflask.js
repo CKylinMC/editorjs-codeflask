@@ -195,6 +195,14 @@
         return a.toLowerCase().localeCompare(b.toLowerCase());
     });
 
+    let btnArr = [];
+    let langStatus = {};
+
+    const setAllFalse = ()=>{
+      for(var langItem of Object.keys(langStatus)){
+        langStatus[langItem] = false;
+      }
+    }
     //Create and append the options
     for (var i = 0; i < languages.length; i++) {
         // Weirdly PrismJS doesnt expose a list of installed languages, or rather it does, but it is mixed with helper functions, which i have to clear here.
@@ -202,18 +210,32 @@
           continue;
         }
 
-        var option = document.createElement("option");
-        option.value = languages[i];
-        option.text = languages[i];
-        if(languages[i] == this.data.language){
-          option.selected="selected"
-        }
-        languagesSelect.appendChild(option);
+        const lang = languages[i];
+        langStatus[lang] = false;
+
+        btnArr.push({
+          label: lang,
+          isActive: langStatus[lang],
+          closeOnActivate: true,
+          toggle: false,
+          onActivate: () => {
+            setAllFalse();
+            langStatus[lang] = true;
+            this._updateLanguage(lang)
+          }
+        })
+        // var option = document.createElement("option");
+        // option.value = languages[i];
+        // option.text = languages[i];
+        // if(languages[i] == this.data.language){
+        //   option.selected="selected"
+        // }
+        // languagesSelect.appendChild(option);
     }
 
-    languagesSelect.addEventListener('change', (event) => {
-      this._updateLanguage(event.target.value)
-    });
+    // languagesSelect.addEventListener('change', (event) => {
+    //   this._updateLanguage(event.target.value)
+    // });
 
 
     // Disabled until codeflask supports toggle of line numbers
@@ -230,12 +252,12 @@
 
 
 
-    settingsContainer.appendChild(languagesSelect);
-    new NiceSelect(languagesSelect, {searchable : true, placeholder : "Language..."});
+    // settingsContainer.appendChild(languagesSelect);
+    // new NiceSelect(languagesSelect, {searchable : true, placeholder : "Language..."});
     
     // settingsContainer.appendChild(settingsButton);
 
-    return settingsContainer;
+    return btnArr;
   }
 
   _toggleLineNumbers = (thing) => {
