@@ -191,6 +191,14 @@
 
      this._element; // used to hold the wrapper div, as a point of reference
 
+     this.langStatus = {};
+
+     let languages = Object.keys(Prism.languages).sort(function (a, b) {
+       return a.toLowerCase().localeCompare(b.toLowerCase());
+     });
+     for(let lang of languages){
+      this.langStatus[lang] = lang == (data.language||'plain');
+     }
  
 
      // let x = (x === undefined) ? your_default_value : x;
@@ -293,11 +301,10 @@
     });
 
     let btnArr = [];
-    let langStatus = {};
 
     const setAllFalse = ()=>{
-      for(var langItem of Object.keys(langStatus)){
-        langStatus[langItem] = false;
+      for(var langItem of Object.keys(this.langStatus)){
+        this.langStatus[langItem] = false;
       }
     }
     //Create and append the options
@@ -308,16 +315,15 @@
         }
 
         const lang = languages[i];
-        langStatus[lang] = false;
 
         btnArr.push({
           label: lang,
-          isActive: langStatus[lang],
+          isActive: this.langStatus[lang],
           closeOnActivate: true,
           toggle: false,
           onActivate: () => {
             setAllFalse();
-            langStatus[lang] = true;
+            this.langStatus[lang] = true;
             this._updateLanguage(lang)
           }
         })
