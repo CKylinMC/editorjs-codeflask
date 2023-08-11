@@ -18,18 +18,115 @@
   * @property {String} text — EditorJsCodeFlask's content. Can include HTML tags: <a><b><i>
   */
 
-  import style from './codeflask.css'
+  import './codeflask.css'
   import icon from './codeflask.svg';
 
   import Prism from 'prismjs';
 
   // import "prismjs-components-importer/esm"; // ALL - Massivly Increases Bundle size!
 
-  import "prismjs-components-importer/esm/prism-iecst"; // Structured Text
-  import "prismjs-components-importer/esm/prism-markdown"; 
-  import "prismjs-components-importer/esm/prism-json"; 
-  import "prismjs-components-importer/esm/prism-python";
+  import "prismjs-components-importer/esm/prism-css";
+  import "prismjs-components-importer/esm/prism-javascript";
+  import "prismjs-components-importer/esm/prism-apacheconf";
+  import "prismjs-components-importer/esm/prism-applescript";
+  import "prismjs-components-importer/esm/prism-asciidoc";
+  import "prismjs-components-importer/esm/prism-autohotkey";
+  import "prismjs-components-importer/esm/prism-autoit";
   import "prismjs-components-importer/esm/prism-bash";
+  import "prismjs-components-importer/esm/prism-basic";
+  import "prismjs-components-importer/esm/prism-batch";
+  import "prismjs-components-importer/esm/prism-bbcode";
+  import "prismjs-components-importer/esm/prism-c";
+  import "prismjs-components-importer/esm/prism-csharp";
+  import "prismjs-components-importer/esm/prism-cpp";
+  import "prismjs-components-importer/esm/prism-clojure";
+  import "prismjs-components-importer/esm/prism-cmake";
+  import "prismjs-components-importer/esm/prism-css-extras";
+  import "prismjs-components-importer/esm/prism-csv";
+  import "prismjs-components-importer/esm/prism-dart";
+  import "prismjs-components-importer/esm/prism-diff";
+  import "prismjs-components-importer/esm/prism-django";
+  import "prismjs-components-importer/esm/prism-dns-zone-file";
+  import "prismjs-components-importer/esm/prism-docker";
+  import "prismjs-components-importer/esm/prism-dot";
+  import "prismjs-components-importer/esm/prism-editorconfig";
+  import "prismjs-components-importer/esm/prism-ejs";
+  import "prismjs-components-importer/esm/prism-excel-formula";
+  import "prismjs-components-importer/esm/prism-flow";
+  import "prismjs-components-importer/esm/prism-go";
+  import "prismjs-components-importer/esm/prism-glsl";
+  import "prismjs-components-importer/esm/prism-graphql";
+  import "prismjs-components-importer/esm/prism-haskell";
+  import "prismjs-components-importer/esm/prism-hlsl";
+  import "prismjs-components-importer/esm/prism-http";
+  import "prismjs-components-importer/esm/prism-hpkp";
+  import "prismjs-components-importer/esm/prism-hsts";
+  import "prismjs-components-importer/esm/prism-ignore";
+  import "prismjs-components-importer/esm/prism-ini";
+  import "prismjs-components-importer/esm/prism-java";
+  import "prismjs-components-importer/esm/prism-javadoc";
+  import "prismjs-components-importer/esm/prism-javadoclike";
+  import "prismjs-components-importer/esm/prism-javastacktrace";
+  import "prismjs-components-importer/esm/prism-jsdoc";
+  import "prismjs-components-importer/esm/prism-jq";
+  import "prismjs-components-importer/esm/prism-js-extras";
+  import "prismjs-components-importer/esm/prism-json";
+  import "prismjs-components-importer/esm/prism-jsonp";
+  import "prismjs-components-importer/esm/prism-json5";
+  import "prismjs-components-importer/esm/prism-jsstacktrace";
+  import "prismjs-components-importer/esm/prism-js-templates";
+  import "prismjs-components-importer/esm/prism-kotlin";
+  import "prismjs-components-importer/esm/prism-latex";
+  import "prismjs-components-importer/esm/prism-less";
+  import "prismjs-components-importer/esm/prism-liquid";
+  import "prismjs-components-importer/esm/prism-llvm";
+  import "prismjs-components-importer/esm/prism-log";
+  import "prismjs-components-importer/esm/prism-lua";
+  import "prismjs-components-importer/esm/prism-makefile";
+  import "prismjs-components-importer/esm/prism-markdown";
+  import "prismjs-components-importer/esm/prism-matlab";
+  import "prismjs-components-importer/esm/prism-mongodb";
+  import "prismjs-components-importer/esm/prism-monkey";
+  import "prismjs-components-importer/esm/prism-nginx";
+  import "prismjs-components-importer/esm/prism-nsis";
+  import "prismjs-components-importer/esm/prism-objectivec";
+  import "prismjs-components-importer/esm/prism-opencl";
+  import "prismjs-components-importer/esm/prism-perl";
+  import "prismjs-components-importer/esm/prism-php";
+  import "prismjs-components-importer/esm/prism-phpdoc";
+  import "prismjs-components-importer/esm/prism-php-extras";
+  import "prismjs-components-importer/esm/prism-powershell";
+  import "prismjs-components-importer/esm/prism-protobuf";
+  import "prismjs-components-importer/esm/prism-python";
+  import "prismjs-components-importer/esm/prism-qsharp";
+  import "prismjs-components-importer/esm/prism-q";
+  import "prismjs-components-importer/esm/prism-qml";
+  import "prismjs-components-importer/esm/prism-jsx";
+  import "prismjs-components-importer/esm/prism-tsx";
+  import "prismjs-components-importer/esm/prism-regex";
+  import "prismjs-components-importer/esm/prism-renpy";
+  import "prismjs-components-importer/esm/prism-rest";
+  import "prismjs-components-importer/esm/prism-ruby";
+  import "prismjs-components-importer/esm/prism-rust";
+  import "prismjs-components-importer/esm/prism-sass";
+  import "prismjs-components-importer/esm/prism-scss";
+  import "prismjs-components-importer/esm/prism-scala";
+  import "prismjs-components-importer/esm/prism-scheme";
+  import "prismjs-components-importer/esm/prism-shell-session";
+  import "prismjs-components-importer/esm/prism-sql";
+  import "prismjs-components-importer/esm/prism-swift";
+  import "prismjs-components-importer/esm/prism-toml";
+  import "prismjs-components-importer/esm/prism-typescript";
+  import "prismjs-components-importer/esm/prism-v";
+  import "prismjs-components-importer/esm/prism-uri";
+  import "prismjs-components-importer/esm/prism-unrealscript";
+  import "prismjs-components-importer/esm/prism-vhdl";
+  import "prismjs-components-importer/esm/prism-vim";
+  import "prismjs-components-importer/esm/prism-visual-basic";
+  import "prismjs-components-importer/esm/prism-wasm";
+  import "prismjs-components-importer/esm/prism-wiki";
+  import "prismjs-components-importer/esm/prism-xml-doc";
+  import "prismjs-components-importer/esm/prism-yaml";
  
 
   import CodeFlask from 'codeflask';
